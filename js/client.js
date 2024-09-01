@@ -1,4 +1,4 @@
-const socket = io("http://localhost:8080");
+const socket = io("https://chatapp-uvls.onrender.com");
 
 const from = document.getElementById("send-container");
 const messageInput = document.getElementById("messageInp");

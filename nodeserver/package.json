@@ -1,7 +1,7 @@
 {
   "name": "nodeserver",
   "version": "1.0.0",
-  "description": "This is a node server for our chat appication",
+  "description": "This is a node server for our chat application",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -12,5 +12,8 @@
   "dependencies": {
     "express": "^4.19.2",
     "socket.io": "^4.7.5"
+  },
+  "engines": {
+    "node": "18.x"
   }
 }

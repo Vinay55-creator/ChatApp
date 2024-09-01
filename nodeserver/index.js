@@ -1,15 +1,19 @@
 const express = require("express");
 const path = require("path");
 const app = express();
+const http = require("http");
+const socketIo = require("socket.io"); // Import the socket.io module
+
+const server = http.createServer(app);
 
 // Serve static files
 app.use(express.static(path.join(__dirname, "../")));
 
 //Node server which handle socket io connection
-const io = require("socket.io")(8080, {
+const io = socketIo(server, {
   cors: {
-    origin: "http://127.0.0.1:5500", // Allow this origin to connect
-    methods: ["GET", "POST"], // Allow these methods
+    origin: "http://127.0.0.1:5500",
+    methods: ["GET", "POST"], 
   },
 });
 
@@ -35,6 +39,7 @@ io.on("connection", (socket) => {
 });
 
 const PORT = process.env.PORT || 8080;
-http.listen(PORT, () => {
+server.listen(PORT, () => {
+  // Use server.listen instead of http.listen
   console.log(`Server running on port ${PORT}`);
 });
